@@ -96,4 +96,25 @@ fix32_t fix32_isqrt(fix32_t a, sint_t exp);
 fix32_t fix32_sqrt(fix32_t a, sint_t exp);
 
 
+//
+// Returns the trigonometric sine of a fixed-point angle.
+//
+// @param a
+// Value representing an angle exressed in revolutions. The value can have
+// any fixed-point format, from Q1 to Q31. The actual format is specified
+// through the second argument.
+//
+// @param exp
+// Value specifying a fixed-point format of the first argument. This value
+// must be in the range from 1 to 31, which corresponds to the fixed-point
+// formats from Q1 to Q31 repsectively. If the value exceeds these limits,
+// the behavior is undefined.
+//
+// @return
+// The trigonometric sine of the specified angle. The result will have the
+// same fixed-point format as the input angle.
+//
+fix32_t fix32_sin(fix32_t a, sint_t exp);
+
+
 #endif
