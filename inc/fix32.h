@@ -74,4 +74,26 @@ fix32_t fix32_div(fix32_t a, fix32_t b, fix32_t exp);
 fix32_t fix32_isqrt(fix32_t a, fix32_t exp);
 
 
+//
+// Returns the square root of a fixed-point number.
+//
+// @param a
+// Non-negative fixed-point number whose square root is to be determined.
+// The number can be in any fixed-point format, from Q1 to Q31. The last
+// argument specifies the actual format.
+//
+// @param exp
+// Value specifying a fixed-point format of the first argument. This value
+// must be in the range from 1 to 31, which corresponds to the fixed-point
+// formats from Q1 to Q31 repsectively. If the value exceeds these limits,
+// the behavior is undefined.
+//
+// @return
+// The square root of the specified number. The result will have the same
+// format as the first argument. If the result cannot be represent in this
+// format, the behavior is undefined.
+//
+fix32_t fix32_sqrt(fix32_t a, fix32_t exp);
+
+
 #endif
