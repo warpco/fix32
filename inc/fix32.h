@@ -22,7 +22,7 @@
 // same fixed-point format as the input argument. If the reciprocal cannot
 // be represented in this format, the behavior is undefined.
 //
-fix32_t fix32_inv(fix32_t a, fix32_t exp);
+fix32_t fix32_inv(fix32_t a, sint_t exp);
 
 
 //
@@ -49,7 +49,7 @@ fix32_t fix32_inv(fix32_t a, fix32_t exp);
 // be represented in this format, or the first two arguments are specified
 // in different formats, the behavior is undefined.
 //
-fix32_t fix32_div(fix32_t a, fix32_t b, fix32_t exp);
+fix32_t fix32_div(fix32_t a, fix32_t b, sint_t exp);
 
 
 //
@@ -71,7 +71,7 @@ fix32_t fix32_div(fix32_t a, fix32_t b, fix32_t exp);
 // will have the same fixed-point format as the input number. If it cannot
 // be represented in this format, the behavior is undefined.
 //
-fix32_t fix32_isqrt(fix32_t a, fix32_t exp);
+fix32_t fix32_isqrt(fix32_t a, sint_t exp);
 
 
 //
@@ -93,7 +93,7 @@ fix32_t fix32_isqrt(fix32_t a, fix32_t exp);
 // format as the first argument. If the result cannot be represent in this
 // format, the behavior is undefined.
 //
-fix32_t fix32_sqrt(fix32_t a, fix32_t exp);
+fix32_t fix32_sqrt(fix32_t a, sint_t exp);
 
 
 #endif
