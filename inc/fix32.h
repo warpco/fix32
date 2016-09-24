@@ -52,4 +52,26 @@ fix32_t fix32_inv(fix32_t a, fix32_t exp);
 fix32_t fix32_div(fix32_t a, fix32_t b, fix32_t exp);
 
 
+//
+// Returns the inverse square root of a fixed-point number.
+//
+// @param a
+// Positive fixed-point number whose inverse square root is to be computed.
+// If the number is negative or zero, the behavior is undefined. The number
+// can be in any fixed-point format, from Q1 to Q30.
+//
+// @param exp
+// Value specifying a fixed-point format of the first argument. This value
+// must be in the range from 1 to 30, which corresponds to the fixed-point
+// formats from Q1 to Q30 repsectively. If the value exceeds these limits,
+// the behavior is undefined.
+//
+// @return
+// The inverse square root of the specified fixed-point number. The result
+// will have the same fixed-point format as the input number. If it cannot
+// be represented in this format, the behavior is undefined.
+//
+fix32_t fix32_isqrt(fix32_t a, fix32_t exp);
+
+
 #endif
