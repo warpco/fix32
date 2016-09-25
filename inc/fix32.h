@@ -211,4 +211,24 @@ fix32_t fix32_flip(fix32_t mag, fix32_t sig);
 fix32_t fix32_frac(fix32_t a, sint_t exp);
 
 
+//
+// Returns the integer part of a fixed-point number.
+//
+// @param a
+// Fixed-point number whose integer part is to be determined. The number
+// can be in any fixed-point format, from Q1 to Q31.
+//
+// @param exp
+// Value specifying a fixed-point format of the first argument. This value
+// must be in the range from 1 to 31, which corresponds to the fixed-point
+// formats from Q1 to Q31 repsectively. If the value exceeds these limits,
+// the behavior is undefined.
+//
+// @return
+// The integer part of the specified number. The return value will have
+// the same fixed-point format as the input number.
+//
+fix32_t fix32_trun(fix32_t a, sint_t exp);
+
+
 #endif
