@@ -153,4 +153,23 @@ fix32_t fix32_cos(fix32_t a, sint_t exp);
 fix32_t fix32_abs(fix32_t a);
 
 
+//
+// Returns a value with the magnitude of the first argument and the sign
+// of the second argument. The function treats zero as a positive number.
+//
+// @param mag
+// Number in any fixed-point format.
+//
+// @param sig
+// Number in any fixed-point format. Zero is treated as a positive number.
+//
+// @return
+// The value with the magnitude of the first argument and the sign of the
+// second argument. The fixed-point format of the result will be the same
+// as that of the first argument. The behavior is undefined if the result
+// cannot be represented in this format.
+//
+fix32_t fix32_copy(fix32_t mag, fix32_t sig);
+
+
 #endif
