@@ -3,6 +3,20 @@
 
 
 //
+// Defines the 32-bit signed integer type representing a fixed-point number.
+// You have to change this definition to match the current CPU architecture.
+//
+typedef signed long fix32_t;
+
+
+//
+// Defines the signed integer type with a size equal to the word length.
+// You have to change this definition to match the current CPU architecture.
+//
+typedef signed int sint_t;
+
+
+//
 // Returns the product of two fixed-point numbers. The first two arguments
 // specify the multiplicands. The last argument specifies the format of the
 // multiplicands, and must be in the range from 0 to 31, which corresponds
