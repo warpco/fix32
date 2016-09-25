@@ -3,6 +3,27 @@
 
 
 //
+// Returns the product of two fixed-point numbers.
+//
+// @param a, b
+// Fixed-point numbers representing the multiplicands. This numbers can
+// be specified in any fixed-point format, from Q0 to Q31.
+//
+// @param exp
+// Value specifying a fixed-point format of the first argument. This value
+// must be in the range from 0 to 31, which corresponds to the fixed-point
+// formats from Q0 to Q31 repsectively. If the value exceeds these limits,
+// the behavior is undefined.
+//
+// @return
+// The product of two specified numbers. The product will have the same
+// fixed-point format as the input multiplicands. If the product cannot
+// be represented in this format, the behavior is undefined.
+//
+fix32_t fix32_mul(fix32_t a, fix32_t b, sint_t exp);
+
+
+//
 // Returns the reciprocal of a fixed-point number.
 //
 // @param a
