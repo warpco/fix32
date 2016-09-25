@@ -231,4 +231,29 @@ fix32_t fix32_frac(fix32_t a, sint_t exp);
 fix32_t fix32_trun(fix32_t a, sint_t exp);
 
 
+//
+// Clamps a fixed-point number within the specified range.
+//
+// @param a
+// Fixed-point number to be clamped. All input arguments must be in the
+// same fixed-point format, which can be arbitrary.
+//
+// @param min
+// Fixed-point number representing the lower bound of the clipping range.
+// All input arguments must be in the same fixed-point format, which can
+// be arbitrary.
+//
+// @param max
+// Fixed-point number representing the upper bound of the clipping range.
+// All input arguments must be in the same fixed-point format, which can
+// be arbitrary.
+//
+// @return
+// The first argument clamped within the range specified by the second
+// and third argument. If the upper bound is less than the lower bound,
+// the behaviour is undefined.
+//
+fix32_t fix32_clip(fix32_t a, fix32_t min, fix32_t max);
+
+
 #endif
