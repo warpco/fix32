@@ -138,4 +138,19 @@ fix32_t fix32_sin(fix32_t a, sint_t exp);
 fix32_t fix32_cos(fix32_t a, sint_t exp);
 
 
+//
+// Returns the absolute value of a fixed-point number.
+//
+// @param a
+// Fixed-point number whose absolute value is to be found. The number can
+// have any fixed-point format? there is no need to specify it explicitly.
+//
+// @return
+// The absolute value of the specified number. The result will have the same
+// fixed-point format as the input number. If the result cannot be represent
+// in this format, the behavior is undefined.
+//
+fix32_t fix32_abs(fix32_t a);
+
+
 #endif
