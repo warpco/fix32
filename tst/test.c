@@ -57,10 +57,36 @@ void test_inv(void)
 }
 
 
+void test_div(void)
+{
+    if (fix32_div(0xb9785a58, 0x6d0b24e7, 31) != 0xad3580b8) fail(__LINE__);
+    if (fix32_div(0x10b4ae81, 0x7769fb3f, 30) != 0x08f41712) fail(__LINE__);
+    if (fix32_div(0xc3fb2ce8, 0x544ed815, 29) != 0xe9381db2) fail(__LINE__);
+    if (fix32_div(0x3bdd19d3, 0x252a5915, 28) != 0x19c592e6) fail(__LINE__);
+    if (fix32_div(0x353fbb10, 0xe9680fe4, 27) != 0xed2538d3) fail(__LINE__);
+    if (fix32_div(0x16e55d16, 0x03f3bd04, 26) != 0x172c665a) fail(__LINE__);
+    if (fix32_div(0x79d32ff9, 0xf1965e24, 24) != 0xf78c1ed3) fail(__LINE__);
+    if (fix32_div(0x28355003, 0xbfcd1b3d, 22) != 0xffd7ea90) fail(__LINE__);
+    if (fix32_div(0x89b87bf3, 0x217295f6, 20) != 0xffc76b7c) fail(__LINE__);
+    if (fix32_div(0x8ad655cc, 0x719432ab, 17) != 0xfffdefd8) fail(__LINE__);
+    if (fix32_div(0x77a73994, 0x403a6d44, 16) != 0x0001dcea) fail(__LINE__);
+    if (fix32_div(0x0e64eae7, 0x0737f5a1, 14) != 0x00007f9e) fail(__LINE__);
+    if (fix32_div(0x284da6d4, 0x6094edba, 12) != 0x000006ad) fail(__LINE__);
+    if (fix32_div(0x2bd2a7b7, 0x03fe62c2, 11) != 0x000057c9) fail(__LINE__);
+    if (fix32_div(0xe5558521, 0x80120930,  9) != 0x0000006b) fail(__LINE__);
+    if (fix32_div(0x43b0720e, 0x096f40c0,  7) != 0x00000396) fail(__LINE__);
+    if (fix32_div(0x35ff4f71, 0xc59e31fd,  5) != 0xffffffe2) fail(__LINE__);
+    if (fix32_div(0x1c17b1b4, 0xbfe7d55b,  4) != 0xfffffff9) fail(__LINE__);
+    if (fix32_div(0x8d2ec803, 0x9e74eaed,  1) != 0x00000002) fail(__LINE__);
+    if (fix32_div(0x719ba49f, 0xb6a32bff,  1) != 0xfffffffd) fail(__LINE__);
+}
+
+
 int main(void)
 {
     test_mul();
     test_inv();
+    test_div();
 
     okay();
 }
