@@ -195,6 +195,21 @@ void test_copy(void)
 }
 
 
+void test_flip(void)
+{
+    if (fix32_flip(0x00000000, 0x00000000) != 0x00000000) fail(__LINE__);
+    if (fix32_flip(0x00000000, 0x7fffffff) != 0x00000000) fail(__LINE__);
+    if (fix32_flip(0x00000000, 0x80000001) != 0x00000000) fail(__LINE__);
+    if (fix32_flip(0x7fffffff, 0x00000000) != 0x7fffffff) fail(__LINE__);
+    if (fix32_flip(0x7fffffff, 0x7fffffff) != 0x7fffffff) fail(__LINE__);
+    if (fix32_flip(0x7fffffff, 0x80000001) != 0x80000001) fail(__LINE__);
+    if (fix32_flip(0x80000001, 0x00000000) != 0x80000001) fail(__LINE__);
+    if (fix32_flip(0x80000001, 0x7fffffff) != 0x80000001) fail(__LINE__);
+    if (fix32_flip(0x80000001, 0x80000001) != 0x7fffffff) fail(__LINE__);
+    if (fix32_flip(0x1b0a627f, 0x9e9128d9) != 0xe4f59d81) fail(__LINE__);
+}
+
+
 int main(void)
 {
     test_mul();
@@ -206,6 +221,7 @@ int main(void)
     test_cos();
     test_abs();
     test_copy();
+    test_flip();
 
     okay();
 }
