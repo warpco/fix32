@@ -125,6 +125,26 @@ void test_sqrt(void)
 }
 
 
+void test_sin(void)
+{
+    if (fix32_sin(0xa0000000, 31) != 0x7fffffff) fail(__LINE__);
+    if (fix32_sin(0xc0000000, 31) != 0x00000000) fail(__LINE__);
+    if (fix32_sin(0xe0000000, 31) != 0x80000001) fail(__LINE__);
+    if (fix32_sin(0x00000000, 31) != 0x00000000) fail(__LINE__);
+    if (fix32_sin(0x20000000, 31) != 0x7fffffff) fail(__LINE__);
+    if (fix32_sin(0x40000000, 31) != 0x00000000) fail(__LINE__);
+    if (fix32_sin(0x60000000, 31) != 0x80000001) fail(__LINE__);
+    if (fix32_sin(0x77a7e745, 29) != 0xe012b18f) fail(__LINE__);
+    if (fix32_sin(0x018dbaa1, 23) != 0x004fe109) fail(__LINE__);
+    if (fix32_sin(0x36672e2d, 21) != 0x001f9625) fail(__LINE__);
+    if (fix32_sin(0x640609b3, 18) != 0xffffc318) fail(__LINE__);
+    if (fix32_sin(0x3bad69a5, 15) != 0xffff8e14) fail(__LINE__);
+    if (fix32_sin(0x9074574c, 12) != 0x0000045d) fail(__LINE__);
+    if (fix32_sin(0x5ee781d8,  8) != 0xffffff2b) fail(__LINE__);
+    if (fix32_sin(0x890ebc72,  3) != 0x00000008) fail(__LINE__);
+}
+
+
 int main(void)
 {
     test_mul();
@@ -132,6 +152,7 @@ int main(void)
     test_div();
     test_isqrt();
     test_sqrt();
+    test_sin();
 
     okay();
 }
