@@ -131,10 +131,9 @@ fix32_t fix32_frac(fix32_t a, sint_t exp);
 
 //
 // Returns the integer part of a fixed-point number specified in the first
-// argument. The second argument determines the format of the number and must
+// argument. The second argument specifies the format of the number and must
 // be in the range from 1 to 31, which corresponds to the fixed-point formats
-// from Q1 to Q31 repsectively. The result will have the same format as the
-// input number.
+// from Q1 to Q31. The result will have the same format as the input number.
 //
 fix32_t fix32_trun(fix32_t a, sint_t exp);
 
