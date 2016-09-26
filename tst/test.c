@@ -165,6 +165,21 @@ void test_cos(void)
 }
 
 
+void test_abs(void)
+{
+    if (fix32_abs(0x00000000) != 0x00000000) fail(__LINE__);
+    if (fix32_abs(0x00000001) != 0x00000001) fail(__LINE__);
+    if (fix32_abs(0xffffffff) != 0x00000001) fail(__LINE__);
+    if (fix32_abs(0x7fffffff) != 0x7fffffff) fail(__LINE__);
+    if (fix32_abs(0x80000001) != 0x7fffffff) fail(__LINE__);
+    if (fix32_abs(0x4a3c59a3) != 0x4a3c59a3) fail(__LINE__);
+    if (fix32_abs(0xfcb799be) != 0x03486642) fail(__LINE__);
+    if (fix32_abs(0x0511e042) != 0x0511e042) fail(__LINE__);
+    if (fix32_abs(0xb2ac44f9) != 0x4d53bb07) fail(__LINE__);
+    if (fix32_abs(0xcb276864) != 0x34d8979c) fail(__LINE__);
+}
+
+
 int main(void)
 {
     test_mul();
@@ -174,6 +189,7 @@ int main(void)
     test_sqrt();
     test_sin();
     test_cos();
+    test_abs();
 
     okay();
 }
