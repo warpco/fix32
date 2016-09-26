@@ -240,6 +240,21 @@ void test_trun(void)
 }
 
 
+void test_clip(void)
+{
+    if (fix32_clip(0x15885ee2, 0xab4a030e, 0x3765e4a2) != 0x15885ee2) fail(__LINE__);
+    if (fix32_clip(0x93fecd4e, 0xe05b4211, 0x0dd2aaa4) != 0xe05b4211) fail(__LINE__);
+    if (fix32_clip(0x4e9c206f, 0xfffa7e63, 0x3fc2cdd9) != 0x3fc2cdd9) fail(__LINE__);
+    if (fix32_clip(0x178f4dbf, 0x178f4dbf, 0x178f4dbf) != 0x178f4dbf) fail(__LINE__);
+    if (fix32_clip(0xcf19fe3c, 0x61f470e2, 0x61f470e2) != 0x61f470e2) fail(__LINE__);
+    if (fix32_clip(0x07d0b1fe, 0xbbcf6153, 0x16be2d70) != 0x07d0b1fe) fail(__LINE__);
+    if (fix32_clip(0xff86105d, 0xa1db0657, 0x29ab8a02) != 0xff86105d) fail(__LINE__);
+    if (fix32_clip(0x2944ebd9, 0xa63a8da5, 0xfce77339) != 0xfce77339) fail(__LINE__);
+    if (fix32_clip(0x1ff974a8, 0x19072300, 0x72cacc85) != 0x1ff974a8) fail(__LINE__);
+    if (fix32_clip(0xe28e4590, 0x8391f2fe, 0x3592a84f) != 0xe28e4590) fail(__LINE__);
+}
+
+
 int main(void)
 {
     test_mul();
@@ -254,6 +269,7 @@ int main(void)
     test_flip();
     test_frac();
     test_trun();
+    test_clip();
 
     okay();
 }
