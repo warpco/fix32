@@ -82,11 +82,32 @@ void test_div(void)
 }
 
 
+void test_isqrt(void)
+{
+    if (fix32_isqrt(0x1816f4cb, 30) != 0x68511dd0) fail(__LINE__);
+    if (fix32_isqrt(0x02613402, 29) != 0x75584552) fail(__LINE__);
+    if (fix32_isqrt(0x07ba2f31, 29) != 0x411e9c98) fail(__LINE__);
+    if (fix32_isqrt(0x186d105c, 28) != 0x0cf31374) fail(__LINE__);
+    if (fix32_isqrt(0x1e6d816e, 25) != 0x008343ec) fail(__LINE__);
+    if (fix32_isqrt(0x793c1513, 24) != 0x0017400c) fail(__LINE__);
+    if (fix32_isqrt(0x5f4ccf78, 23) != 0x0009457f) fail(__LINE__);
+    if (fix32_isqrt(0x4536292e, 21) != 0x00015c24) fail(__LINE__);
+    if (fix32_isqrt(0x007e41df, 18) != 0x0000b644) fail(__LINE__);
+    if (fix32_isqrt(0x57f906dc, 16) != 0x000001b5) fail(__LINE__);
+    if (fix32_isqrt(0x4b31f08c, 14) != 0x0000003b) fail(__LINE__);
+    if (fix32_isqrt(0x0629fa94, 13) != 0x00000049) fail(__LINE__);
+    if (fix32_isqrt(0x47eaa74d, 11) != 0x00000003) fail(__LINE__);
+    if (fix32_isqrt(0x7bd10b9c, 10) != 0x00000001) fail(__LINE__);
+    if (fix32_isqrt(0x01e7af4a,  9) != 0x00000002) fail(__LINE__);
+}
+
+
 int main(void)
 {
     test_mul();
     test_inv();
     test_div();
+    test_isqrt();
 
     okay();
 }
