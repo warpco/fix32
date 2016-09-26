@@ -210,6 +210,21 @@ void test_flip(void)
 }
 
 
+void test_frac(void)
+{
+    if (fix32_frac(0x00000000, 31) != 0x00000000) fail(__LINE__);
+    if (fix32_frac(0x7fffffff, 31) != 0x7fffffff) fail(__LINE__);
+    if (fix32_frac(0x80000001, 31) != 0x80000001) fail(__LINE__);
+    if (fix32_frac(0xa35a2e07, 30) != 0xe35a2e07) fail(__LINE__);
+    if (fix32_frac(0x7ddc521b, 26) != 0x01dc521b) fail(__LINE__);
+    if (fix32_frac(0x60c7ca9c, 17) != 0x0001ca9c) fail(__LINE__);
+    if (fix32_frac(0x9bcbcd20, 13) != 0xffffed20) fail(__LINE__);
+    if (fix32_frac(0x737bdc6f, 10) != 0x0000006f) fail(__LINE__);
+    if (fix32_frac(0xae944b67,  8) != 0xffffff67) fail(__LINE__);
+    if (fix32_frac(0xfc1e56a9,  1) != 0xffffffff) fail(__LINE__);
+}
+
+
 int main(void)
 {
     test_mul();
@@ -222,6 +237,7 @@ int main(void)
     test_abs();
     test_copy();
     test_flip();
+    test_frac();
 
     okay();
 }
