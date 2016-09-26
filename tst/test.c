@@ -37,9 +37,30 @@ void test_mul(void)
 }
 
 
+void test_inv(void)
+{
+    if (fix32_inv(0xd6b403f4, 30) != 0x9cd0cad2) fail(__LINE__);
+    if (fix32_inv(0x7fe95a16, 29) != 0x08016a9f) fail(__LINE__);
+    if (fix32_inv(0x0303e5d5, 28) != 0x54e705e1) fail(__LINE__);
+    if (fix32_inv(0x0ea767bb, 27) != 0x045e0fe6) fail(__LINE__);
+    if (fix32_inv(0xe647665c, 26) != 0xff60c0d7) fail(__LINE__);
+    if (fix32_inv(0x7ff02269, 25) != 0x000800fe) fail(__LINE__);
+    if (fix32_inv(0x66f2d738, 24) != 0x00027c97) fail(__LINE__);
+    if (fix32_inv(0x1f21624a, 23) != 0x00020e4d) fail(__LINE__);
+    if (fix32_inv(0x1b2c5236, 21) != 0x000025af) fail(__LINE__);
+    if (fix32_inv(0xef89226d, 19) != 0xfffffc1d) fail(__LINE__);
+    if (fix32_inv(0x5ed2759f, 18) != 0x0000002b) fail(__LINE__);
+    if (fix32_inv(0x7f2d5690, 17) != 0x00000008) fail(__LINE__);
+    if (fix32_inv(0xaae53cec, 15) != 0xffffffff) fail(__LINE__);
+    if (fix32_inv(0x0ba27e1e, 14) != 0x00000001) fail(__LINE__);
+    if (fix32_inv(0xf5323937, 12) != 0x00000000) fail(__LINE__);
+}
+
+
 int main(void)
 {
     test_mul();
+    test_inv();
 
     okay();
 }
