@@ -54,9 +54,9 @@ fix32_isqrt_table   dcd     0x05a005a5, 0x0595059a, 0x058a058f, 0x05800585
                     dcd     0x040d040f, 0x0409040b, 0x04050407, 0x04010403
 
 
-; The sine lookup table. The table consist of sixty-four 32-bit entries. Each
-; table entry is a Q31 fixed-point value representing the sine of an angle in
-; the first quadrant.
+; The sine lookup table. The table describes the first quarter of the sine
+; wave and consist of 64 entries, which are numbers in the Q31 fixed-point
+; format. Each number represents the sine of an angle in the first quadrant.
 
                     area    |.fix32_sin_table|, data
 

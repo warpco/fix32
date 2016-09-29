@@ -4,17 +4,13 @@
 
 
 ; Returns the sine of a fixed-point angle. The first argument specifies
-; an angle expressed in revolutions. The format of the angle is specified
-; by the second argument. For more information see the header file.
-;
-; The current implementation uses the combination of table lookup and third
-; order Taylor series expansion between the lookup-table entries. Due to the
-; symmetry of a sine function there is no need for any additional actions to
-; extend the domain of the function to negative numbers.
+; a number representing an angle. The format of the number is specified
+; in the second argument. For more details, see the function description
+; in the header file.
 ;
 ; Execution time: 46-56 cycles
 ; Absolute error: 2.1 LSB
-;
+
             area    |.fix32_sin|, code
             thumb
 
@@ -70,9 +66,9 @@ fix32_sin   proc
             asr     r0, r3, #15
             mul     r0, r0, ip
 
-; Calculates the other terms of the third-order Taylor series expansion of
-; a sine function. To reduce the number of multiplications the polynomial
-; is evaluated using Horner's method.
+; Calculates the remaining terms of the third-order Taylor series expansion
+; of the sine function. The polynomial is evaluated using Horner's method
+; to reduce the number of multiplications.
 
             smull   ip, r0, r1, r0
             add     r0, r2, asr #1

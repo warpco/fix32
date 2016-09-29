@@ -2,8 +2,10 @@
                 export  fix32_clip
 
 
-; Returns the first argument clamped within a range defined by the second and
-; third argument. For more information see the description in the header file.
+; Clamps a fixed-point number within a particular range. The first argument
+; specifies a number to be clamped. The second argument specifies the lower
+; range bound. The third argument specifies the upper range bound. For more
+; information, see the function description in the header file.
 ;
 ; Execution time: 9-11 cycles
 ; Absolute error: 0 LSB

@@ -5,11 +5,8 @@
 
 ; Returns the inverse square root of a fixed-point number specified in the
 ; the first argument. The second argument specifies the fixed-point format
-; of the first argument. For more information see the header file.
-;
-; The current implementation uses the combination of table lookup and the two
-; iterations of the Newton-Raphson method to get the estimate for the inverse
-; square root of a specified number.
+; of the first argument. For more information, see the function description
+; in the header file.
 ;
 ; Execution time: 37-51 cycles
 ; Absolute error: 2 LSB

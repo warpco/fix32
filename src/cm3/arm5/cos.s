@@ -5,11 +5,8 @@
 
 ; Returns the cosine of a fixed-point angle. The first argument specifies
 ; an angle exressed in revolutions. The format of the angle is specified
-; through the second argument. For more information see the description
-; in the header file.
-;
-; The current implementation uses the combination of table lookup and third
-; order Taylor series expansion between the lookup-table entries.
+; in the second argument. See the function description in the header file
+; for more information.
 ;
 ; Execution time: 48-58 cycles
 ; Absolute error: 2.2 LSB
@@ -76,9 +73,9 @@ fix32_cos   proc
             asr     r0, r3, #15
             mul     r0, r0, ip
 
-; Calculates the other terms of the third-order Taylor series expansion of
-; a cosine function. To reduce the number of multiplications the polynomial
-; is evaluated using Horner's method.
+; Calculates the remaining terms of the third-order Taylor series expansion
+; of the cosine function. The polynomial is evaluated using Horner's method
+; to reduce the number of multiplications.
 
             smull   ip, r0, r1, r0
             rsb     r0, r2, asr #1

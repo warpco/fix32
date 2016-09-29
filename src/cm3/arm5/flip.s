@@ -3,8 +3,8 @@
 
 
 ; Returns a value with the magnitude of the first argument and the sign
-; of product of the both arguments. Zero is treated as a positive number.
-; For more information see the description in the header file.
+; of product of the both arguments. For additional information, see the
+; function description in the header file.
 ;
 ; Execution time: 4-6 cycles
 ; Absolute error: 0 LSB

@@ -5,12 +5,8 @@
 
 ; Returns the quotient of two fixed-point numbers. The first two arguments
 ; specify a dividend and non-zero divisor. The last argument specifies the
-; fixed-point format for the first two arguments. For more information see
-; the description in the header file.
-;
-; The current implementation uses the combination of table lookup and the two
-; iterations of the Newton-Raphson method to find a reciprocal of a specified
-; divisor. The reciprocal is then used to calculate the required quotient.
+; format of the first two arguments. For more information, see the function
+; description in the header file.
 ;
 ; Execution time: 46-56 cycles
 ; Absolute error: 2.0 LSB

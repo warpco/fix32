@@ -3,8 +3,8 @@
 
 
 ; Returns a value with the magnitude of the first argument and the sign
-; of the second argument. The function treats zero as a positive number.
-; For more information see the description in the header file.
+; of the second argument. For additional information, see the function
+; description in the header file.
 ;
 ; Execution time: 5-7 cycles
 ; Absolute error: 0 LSB

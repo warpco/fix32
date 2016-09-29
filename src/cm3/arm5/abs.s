@@ -2,8 +2,9 @@
             export  fix32_abs
 
 
-; Returns the absolute value of a fixed-point number specified in the first
-; argument. For more information see the description in the header file.
+; Returns the absolute value of a fixed-point number. The first-and-only
+; argument specifies a number whose absoute value is to be determined.
+; For more information, see the function description in the header file.
 ;
 ; Execution time: 4-6 cycles
 ; Absolute error: 0 LSB

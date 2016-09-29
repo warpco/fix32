@@ -3,14 +3,10 @@
                 import  fix32_isqrt_table
 
 
-; Returns the square root of a non-negative fixed-point number specified
-; in the first argument. The second argument specifies the format of this
-; number. For more information see the description in the header file.
-;
-; The current implementation uses the combination of table lookup and the two
-; iterations of the Newton-Raphson method to get the estimate for the inverse
-; square root of a specified number. The result is the used to calculate the
-; required square root value.
+; Returns the square root of a fixed-point number. This first argument
+; specifies a number whose square root is to be determined. The second
+; argument specifies the format of this number. For more information,
+; see the function description in the header file.
 ;
 ; Execution time: 41-57 cycles
 ; Absotablee error: 2.5 LSB
