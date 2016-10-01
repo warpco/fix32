@@ -7,7 +7,7 @@
 ; in the first argument. The second argument specifies the number format.
 ; For more information, see the function description in the header file.
 ;
-; Execution time: 38-46 cycles
+; Execution time: 37-45 cycles
 ; Absolute error: 1.0 LSB
 
             area    |.fix32_inv|, code
@@ -33,8 +33,7 @@ fix32_inv   proc
             clz     lr, r0
             lsl     r0, r0, lr
             rsb     lr, lr, #62
-            sub     lr, lr, r1
-            sub     lr, lr, r1
+            sub     lr, r1, lsl #1
 
 ; Looks up on the nine most significant bits of the input value to determine
 ; the initial nine-bit Q8 estimate to its reciprocal. Since the leading bit
