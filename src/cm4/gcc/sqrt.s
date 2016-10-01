@@ -1,7 +1,7 @@
 
         .syntax     unified
-        .arch       armv7-m
-        .cpu        cortex-m3
+        .arch       armv7e-m
+        .cpu        cortex-m4
         .thumb
 
         .global     fix32_sqrt
@@ -13,7 +13,7 @@
 @ argument specifies the format of this number. For more information,
 @ see the function description in the header file.
 @
-@ Execution time: 41-57 cycles
+@ Execution time: 31-33 cycles
 @ Absolute error: 2.5 LSB
 
         .section   .fix32_sqrt, "x"
@@ -71,9 +71,9 @@ fix32_sqrt:
 @ previous step is corrected by square root of two. The last instuction also
 @ clears the carry flag to avoid an incorrect rounding in the next step.
 
-        movs        ip, ip, lsr #1
         movw        r1, #0xf334
         movt        r1, #0xb504
+        movs        ip, ip, lsr #1
         umullcs     r1, r0, r1, r0
         addscs      r0, r0, r1, lsr #31
 

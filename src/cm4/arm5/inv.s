@@ -7,7 +7,7 @@
 ; in the first argument. The second argument specifies the number format.
 ; For more information, see the function description in the header file.
 ;
-; Execution time: 37-45 cycles
+; Execution time: 31-33 cycles
 ; Absolute error: 1.0 LSB
 
             area    |.fix32_inv|, code

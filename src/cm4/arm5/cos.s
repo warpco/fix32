@@ -8,7 +8,7 @@
 ; in the second argument. See the function description in the header file
 ; for more information.
 ;
-; Execution time: 48-58 cycles
+; Execution time: 40-42 cycles
 ; Absolute error: 2.2 LSB
 
             area    |.fix32_cos|, code
@@ -56,33 +56,32 @@ fix32_cos   proc
             ldr     r3, [ip, r3, lsl #2]
             eor     r2, r1
 
+; Loads the coefficients used in the subsequent calculations. The first value
+; is 2pi radians in the Q28 fixed-point format, the second value is one-sixth
+; in the Q32 fixed-point format.
+
+            mov32   r1, #0x6487ed51
+            mov32   ip, #0x2aaa0000
+
 ; Converts the offset from revolutions to radians. Since the table entries
 ; are pointing to the middle of the interval, the offset value is adjusted
 ; by subtracting a half of the interval length.
 
             lsl     r0, #3
-            sub     r0, #0x08000000
-            mov32   ip, #0x6487ed51
-            smull   r0, r1, ip, r0
+            sub     r0, #0x8000000
+            smmul   r1, r1, r0
 
-; Calculates the last coefficient of the third-order Taylor series expansion
-; of a sine function. This coefficient can be calculated with less accuracy,
-; which eliminates the one long multiplication.
+; Calculates the third-order Taylor series expansion of a cosine function.
+; The polynomial is evaluated using Horner's method to reduce the number
+; of multiplications.
 
-            mov     ip, #0x1555
-            asr     r0, r3, #15
-            mul     r0, r0, ip
-
-; Calculates the remaining terms of the third-order Taylor series expansion
-; of the cosine function. The polynomial is evaluated using Horner's method
-; to reduce the number of multiplications.
-
-            smull   ip, r0, r1, r0
+            smmul   r0, ip, r3
+            smmul   r0, r1, r0
             rsb     r0, r2, asr #1
-            smull   ip, r0, r1, r0
-            add     r0, r3
-            smull   ip, r0, r1, r0
-            rsb     r0, r2
+            smmul   r0, r1, r0
+            add     r0, r0, r3
+            smmul   r0, r1, r0
+            sub     r0, r2, r0
 
 ; Corrects the sign of the obtained estimate if the angle value was in the
 ; second semicircle. Then, converts the result to the required fixed-point

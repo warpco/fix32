@@ -8,7 +8,7 @@
 ; argument specifies the format of this number. For more information,
 ; see the function description in the header file.
 ;
-; Execution time: 41-57 cycles
+; Execution time: 31-33 cycles
 ; Absolute error: 2.5 LSB
 
                 area    |.fix32_sqrt|, code
