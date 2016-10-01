@@ -21,9 +21,10 @@
 fix32_inv:
         push        {lr}
 
-@ Splits the specified number to the magnitude and sign part. The magnitude
-@ part is passed to the Newton-Raphson method, as it can only take positive
-@ values. The sign part will be used later to restore the sign of the result.
+@ Splits the input number to the magnitude and sign part. The magnitude part
+@ is passed to the Newton-Raphson method, because the current implementation
+@ only takes positive numbers. The sign part will be used to restore the sign
+@ of the obtained estimate.
 
         asr         ip, r0, #31
         eor         r0, r0, ip
@@ -51,8 +52,9 @@ fix32_inv:
         ldrb        r1, [r1, r2]
         add         r1, r1, #256
 
-@ Performs the first Newton-Raphson iteration, producing the Q16 estimate
-@ to the reciprocal of the input value.
+@ Performs the first Newton-Raphson iteration, producing a rough estimate
+@ to the required reciprocal value. The estimate will be in the Q16 fixed-
+@ point format.
 
         mul         r2, r1, r1
         umull       r3, r2, r0, r2
@@ -69,9 +71,10 @@ fix32_inv:
         adds        r0, r0, r1, lsr #31
         rsb         r0, r0, r2, lsl #15
 
-@ Denormalizes the reciprocal to the required fixed-point format, rounds the
-@ result, and restores its sign. To make the rounding work properly when the
-@ denormalization shift is zero, the carry flag must be cleared.
+@ Using the calculated denormalization shift, denormalizes the reciprocal
+@ to the required fixed-point format, rounds the result, and restores its
+@ sign. To make the rounding work properly when the denormalization shift
+@ is zero, the carry flag must be cleared.
 
         lsrs        r0, r0, lr
         adc         r0, r0, #0

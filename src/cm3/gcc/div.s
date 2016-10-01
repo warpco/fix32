@@ -68,25 +68,25 @@ fix32_div:
         add         ip, ip, r3, lsr #31
         rsb         ip, ip, r2, lsl #15
 
-@ Multiplies the absolute value of a dividend by the multiplicative inverse of
-@ a divisor. On the next step the obtained product will be denormalized to get
-@ the sought-for quotient value.
+@ Multiplies the absolute value of a dividend by the multiplicative inverse
+@ of a divisor. On the next step the resulting product will be denormalized
+@ to get the actual quotient.
 
         smull       r0, r1, r0, ip
 
-@ Performs the denormalization by arithmetically shifting the product from the
-@ previous step to the right by a required number of bits. Since the number of
-@ bits to be shifted can be greater than 32, the operation is performed in two
-@ steps. The code below partially shifts the quotient to reduces the number of
-@ places to be shifted is no more than 32.
+@ Performs the denormalization by arithmetically shifting the product from
+@ the previous step to the right. Because the number of bits to be shifted
+@ can be greater than 32, the operation is performed in two steps. The code
+@ below partially shifts the quotient to reduce the number of places to be
+@ shifted to no more than 32.
 
         subs        lr, lr, #32
         movgt       r0, r1
         asrgt       r1, r1, #31
         addle       lr, lr, #32
 
-@ Now, when the number of bits to be shifted is less than or equal to 32, the
-@ code below finally denormalizes the quotient and rounds the result.
+@ Now, when the number of bits to be shifted is less than or equal to 32,
+@ the code below finally denormalizes the quotient and rounds the result.
 
         lsrs        r0, r0, lr
         rsb         lr, lr, #32

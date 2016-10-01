@@ -35,9 +35,9 @@ fix32_cos   proc
             sub     lr, lr, #2
 
 ; Normalizes the angle to the range from zero to one-quarter and splits the
-; angle bits into two parts. The upper bits determine the expansion point and
-; are used to index the lookup-table. The lower bits form an offset from the
-; expansion point.
+; angle bits into two parts. The upper bits define the expansion point and
+; are used to index the lookup-table. The lower bits are used as an offset
+; from the expansion point.
 
             mov     r1, r0, asr #31
             eor     r0, r1, lsl #25

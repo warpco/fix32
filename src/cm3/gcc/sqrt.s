@@ -14,7 +14,7 @@
 @ see the function description in the header file.
 @
 @ Execution time: 41-57 cycles
-@ Absotablee error: 2.5 LSB
+@ Absolute error: 2.5 LSB
 
         .section   .fix32_sqrt, "x"
         .align
