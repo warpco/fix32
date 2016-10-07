@@ -37,6 +37,26 @@ void test_mul(void)
 }
 
 
+void test_mla(void)
+{
+    if (fix32_mla(0x7fffffff, 0x7fffffff, 0x80000002, 31) != 0x00000000) fail(__LINE__);
+    if (fix32_mla(0x7fffffff, 0x80000000, 0x7fffffff, 31) != 0x00000000) fail(__LINE__);
+    if (fix32_mla(0x80000000, 0x80000001, 0x80000001, 31) != 0x00000000) fail(__LINE__);
+    if (fix32_mla(0xa5ad4149, 0x6244e7e6, 0x66f35c0e, 31) != 0x219b6271) fail(__LINE__);
+    if (fix32_mla(0x0f32c54f, 0x930b2a09, 0x28d11a18, 29) != 0xf511776e) fail(__LINE__);
+    if (fix32_mla(0xad4a15b0, 0xfd1e58a8, 0xcacf2a19, 27) != 0xe899a32e) fail(__LINE__);
+    if (fix32_mla(0xff797575, 0x4c0df90a, 0x3ad08b9b, 24) != 0x12d8126c) fail(__LINE__);
+    if (fix32_mla(0xffb21b57, 0x33712860, 0x17b6f31e, 21) != 0x9a7f140a) fail(__LINE__);
+    if (fix32_mla(0x0006df0d, 0xd5fa6096, 0xb381515a, 19) != 0x8f6978c6) fail(__LINE__);
+    if (fix32_mla(0x738eea0f, 0xffffeab9, 0x239a4401, 15) != 0x1064b855) fail(__LINE__);
+    if (fix32_mla(0xffc3775e, 0x000236c6, 0x0e2fffef, 11) != 0xfd6f62f4) fail(__LINE__);
+    if (fix32_mla(0x00024bb7, 0x005ee33f, 0x14cedb80, 10) != 0x4b4494fa) fail(__LINE__);
+    if (fix32_mla(0xffffe6f4, 0x00b50ac0, 0xe9eb9f9f,  8) != 0xd835165e) fail(__LINE__);
+    if (fix32_mla(0x000223ca, 0x00077247, 0x9e6c212e,  5) != 0x1de49036) fail(__LINE__);
+    if (fix32_mla(0x000015a9, 0xffffe141, 0x69760a66,  1) != 0x68290edb) fail(__LINE__);
+}
+
+
 void test_inv(void)
 {
     if (fix32_inv(0xd6b403f4, 30) != 0x9cd0cad2) fail(__LINE__);
@@ -258,6 +278,7 @@ void test_clip(void)
 int main(void)
 {
     test_mul();
+    test_mla();
     test_inv();
     test_div();
     test_isqrt();
