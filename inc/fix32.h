@@ -19,7 +19,7 @@ typedef signed int sint_t;
 //
 // Returns the product of two fixed-point numbers. The first two arguments
 // specify numbers representing the multiplicands. The format of the input
-// numbers may vary from Q0 to Q31. The actual format is specified in the
+// numbers may vary from Q1 to Q31. The actual format is specified in the
 // third argument. You must not specify an unsupported format, otherwise
 // the behavior is undefined. The result will have the same format as the
 // input values. If the result cannot be represented in this format, the
