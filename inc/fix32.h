@@ -40,6 +40,17 @@ fix32_t fix32_mla(fix32_t a, fix32_t b, fix32_t c, sint_t exp);
 
 
 //
+// Multiplies the values from the first two arguments, subtracts the product
+// from the value in the third argument, and returns the result. The format
+// of the input values is specified in the fourth argument and may vary from
+// Q1 to Q31. The result will have the same fixed-point format as the input
+// values. If the result cannot be represented in this format, or the given
+// format is unsupported, the behavior is undefined.
+//
+fix32_t fix32_mls(fix32_t a, fix32_t b, fix32_t c, sint_t exp);
+
+
+//
 // Returns the reciprocal of a fixed-point number. The number is specified
 // in the first argument. You must not specify zero, otherwise the behavior
 // is undefined. The second argument specifies the number format, which may
