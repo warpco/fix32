@@ -29,12 +29,12 @@ fix32_t fix32_mul(fix32_t a, fix32_t b, sint_t exp);
 
 
 //
-// Multiplies fixed-point values from the first two arguments, adds a value
-// from the third argument, and returns the result. The format of the input
-// values is specified in the fourth argument and may vary from Q1 to Q31.
-// If you specify any other format, the behavior is undefined. The result
+// Multiplies the values from the first two arguments, adds to the value from
+// the third argument, and returns the result. The format of the input values
+// is specified in the last argument and may vary from Q1 to Q31. The result
 // will have the same fixed-point format as the input values. If the result
-// cannot be represented in this format, the behavior is undefined.
+// cannot be represented in this format, or the given format is unsupported,
+// the behavior is undefined.
 //
 fix32_t fix32_mla(fix32_t a, fix32_t b, fix32_t c, sint_t exp);
 
@@ -167,6 +167,16 @@ fix32_t fix32_frac(fix32_t a, sint_t exp);
 // otherwise the behavior is undefined.
 //
 fix32_t fix32_trun(fix32_t a, sint_t exp);
+
+
+//
+// Converts a fixed-point number to the required format. The first argument
+// specifies the number to be converted. The last two arguments specify the
+// original and destination format respectively. These formats may vary from
+// Q1 to Q31. If you specify any other format, or if the input value cannot
+// be represented in the destination format, the behavior is undefined.
+//
+fix32_t fix32_conv(fix32_t a, sint_t src, sint_t dst);
 
 
 //
