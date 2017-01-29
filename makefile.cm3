@@ -1,0 +1,85 @@
+OBJDIR = obj/cm3
+SRCDIR = src/cm3
+BINDIR = bin/cm3
+
+
+AS = arm-none-eabi-as
+AR = arm-none-eabi-ar
+
+# General assembler and archiver options.
+ASFLAGS = -mimplicit-it=always
+ARFLAGS = rcs
+
+# Additional release options.
+ASFLAGS_REL =
+ARFLAGS_REL =
+
+# Additional debug options.
+ASFLAGS_DBG = -g --gdwarf-2 -L
+ARFLAGS_DBG =
+
+# Output file name.
+BIN = fix32.a
+
+
+OBJS += abs.o
+OBJS += clip.o
+OBJS += copy.o
+OBJS += cos.o
+OBJS += div.o
+OBJS += flip.o
+OBJS += frac.o
+OBJS += inv.o
+OBJS += isqrt.o
+OBJS += mla.o
+OBJS += mls.o
+OBJS += mul.o
+OBJS += sin.o
+OBJS += sqrt.o
+OBJS += tables.o
+OBJS += trun.o
+
+
+.PHONY: clean
+.PHONY: distclean
+.PHONY: release
+.PHONY: debug
+
+
+release: ASFLAGS += $(ASFLAGS_REL)
+release: ARFLAGS += $(ARFLAGS_REL)
+
+debug: ASFLAGS += $(ASFLAGS_DBG)
+debug: ARFLAGS += $(ARFLAGS_DBG)
+
+
+release: $(BINDIR) $(OBJDIR) $(BINDIR)/$(BIN)
+	@echo "Build succeeded!"
+
+debug: $(BINDIR) $(OBJDIR) $(BINDIR)/$(BIN)
+	@echo "Build succeeded!"
+
+
+clean:
+	@rm -rf $(BINDIR)
+	@rm -rf $(OBJDIR)
+	@echo "Cleaned!"
+
+distclean:
+	@rm -rf obj
+	@rm -rf bin
+	@echo "Project tree is now in its original state!"
+
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.s
+	@$(AS) $(ASFLAGS) -o $@ $^
+
+$(BINDIR)/$(BIN): $(addprefix $(OBJDIR)/,$(OBJS))
+	@$(AR) $(ARFLAGS) $@ $^
+
+
+$(BINDIR):
+	@mkdir -p $@
+
+$(OBJDIR):
+	@mkdir -p $@
