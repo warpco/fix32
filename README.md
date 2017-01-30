@@ -15,8 +15,8 @@ In addition, 32-bit signed fixed-point numbers have more significant digits
 than single-precision floating-point numbers.
 
 
-Reference
-=========
+Usage
+=====
 
 The header file contains a brief description of each function. If you have
 already know what fixed-point numbers are, this should be enough. Otherwise,
@@ -24,10 +24,6 @@ it is a good idea to read up on them a little bit, so you can understand the
 basic principles and terminology. For more information about the execution
 time and accuracy, as well as the other implementation details of a certain
 function, you may refer to the comments in the corresponding source file.
-
-
-Usage
-=====
 
 The library does not require any initialization or configuration routines.
 Simply download the latest precompiled static library file for the required
