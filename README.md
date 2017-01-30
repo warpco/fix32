@@ -29,10 +29,13 @@ function, you may refer to the comments in the corresponding source file.
 Usage
 =====
 
-Download the library binaries for the required CPU architecture and compiler
-toolchain, and simply add them to your project. The library does not require
-any initialization or configuration routines. If you want, you can include
-the original source files instead of the precompiled library.
+The library does not require any initialization or configuration routines.
+Simply download the latest precompiled static library file for the required
+CPU architecture and add it to your project. To manually build the library,
+use one of the makefiles in the project root. Each makefile contains recipes
+to build both the debug and release version of the library for a particular
+CPU architecture. For more information on the build process and used tools,
+see the contents of the makefiles.
 
 
 Alternatives
