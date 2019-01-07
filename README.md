@@ -1,3 +1,7 @@
+
+> This project is archived and will be replaced with
+> [xmath](https://github.com/warpco/xmath). Someday.
+
 About
 =====
 
